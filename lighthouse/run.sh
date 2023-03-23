@@ -24,8 +24,9 @@ echo "Starting lighthouse validator client for ${NODE}"
 exec lighthouse --network "${NETWORK}" validator \
   --beacon-nodes ${LIGHTHOUSE_BEACON_NODE_ADDRESS} \
   --suggested-fee-recipient "${FEE_RECIPIENT}" \
+  --graffiti "${GRAFFITI}" \
   --metrics \
   --metrics-address "0.0.0.0" \
   --metrics-allow-origin "*" \
   --metrics-port "5064" \
-  --use-long-timeouts \
+  --use-long-timeouts

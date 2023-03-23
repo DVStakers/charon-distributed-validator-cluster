@@ -82,6 +82,7 @@ services:
       LIGHTHOUSE_BEACON_NODE_ADDRESS: http://node-lighthouse:3600
       NETWORK: ${NETWORK}
       FEE_RECIPIENT: ${FEE_RECIPIENT}
+      GRAFFITI: ${GRAFFITI}
     volumes:
       - ./lighthouse/run.sh:/opt/lighthouse/run.sh
       - .charon/cluster/node${FIRST_NODE_NUMBER}/validator_keys:/opt/charon/keys
@@ -96,6 +97,7 @@ services:
       --beacon-node-api-endpoint="http://node-teku:3600"
       --config-file "/opt/charon/teku/teku-config.yaml"
       --validators-proposer-default-fee-recipient="${FEE_RECIPIENT}"
+      --validators-graffiti="${GRAFFITI}"
     volumes:
       - .charon/cluster/node${SECOND_NODE_NUMBER}/validator_keys:/opt/charon/validator_keys
       - ./teku:/opt/charon/teku
@@ -111,6 +113,7 @@ services:
     environment:
       NODE: node-nimbus
       FEE_RECIPIENT: ${FEE_RECIPIENT}
+      GRAFFITI: ${GRAFFITI}
     volumes:
       - .charon/cluster/node${THIRD_NODE_NUMBER}/validator_keys:/home/validator_keys
       - ./nimbus:/home/user/data
