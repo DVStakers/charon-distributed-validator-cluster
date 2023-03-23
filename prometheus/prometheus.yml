@@ -2,52 +2,25 @@ global:
   scrape_interval: 30s # Set the scrape interval to every 30 seconds.
   evaluation_interval: 30s # Evaluate rules every 30 seconds.
 
-remote_write:
-  - url: https://vm.monitoring.gcp.obol.tech/write
-    authorization:
-      credentials: $PROM_REMOTE_WRITE_TOKEN
-    write_relabel_configs:
-      - source_labels: [job]
-        regex: "charon(.*)"
-        action: keep # Keeps charon metrics and drop metrics from other containers.
-
 scrape_configs:
-  - job_name: "charon-0"
+  - job_name: "node-lighthouse"
     static_configs:
-      - targets: ["node0:3620"]
-  - job_name: "charon-1"
+      - targets: ["node-lighthouse:3620"]
+  - job_name: "node-teku"
     static_configs:
-      - targets: ["node1:3620"]
-  - job_name: "charon-2"
+      - targets: ["node-teku:3620"]
+  - job_name: "node-nimbus"
     static_configs:
-      - targets: ["node2:3620"]
-  - job_name: "charon-3"
+      - targets: ["node-nimbus:3620"]
+  - job_name: "vc-lighthouse"
     static_configs:
-      - targets: ["node3:3620"]
-  - job_name: "charon-4"
+      - targets: ["vc-lighthouse:5064"]
+  - job_name: "vc-teku"
     static_configs:
-      - targets: ["node4:3620"]
-  - job_name: "charon-5"
+      - targets: ["vc-teku:8008"]
+  - job_name: "vc-nimbus"
     static_configs:
-      - targets: ["node5:3620"]
-  - job_name: "vc0"
-    static_configs:
-      - targets: ["vc0-lighthouse:5064"]
-  - job_name: "vc1"
-    static_configs:
-      - targets: ["vc1-teku:8008"]
-  - job_name: "vc2"
-    static_configs:
-      - targets: ["vc2-nimbus:8108"]
-  - job_name: "vc3"
-    static_configs:
-      - targets: ["vc3-lighthouse:5064"]
-  - job_name: "vc4"
-    static_configs:
-      - targets: ["vc4-teku:8008"]
-  - job_name: "vc5"
-    static_configs:
-      - targets: ["vc5-nimbus:8108"]
+      - targets: ["vc-nimbus:8108"]
   - job_name: "node-exporter"
     static_configs:
       - targets: ["node-exporter:9100"]
