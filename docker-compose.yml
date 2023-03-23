@@ -80,7 +80,7 @@ services:
     restart: unless-stopped
     environment:
       LIGHTHOUSE_BEACON_NODE_ADDRESS: http://node-lighthouse:3600
-      ETH2_NETWORK: ${ETH2_NETWORK}
+      NETWORK: ${NETWORK}
       FEE_RECIPIENT: ${FEE_RECIPIENT}
     volumes:
       - ./lighthouse/run.sh:/opt/lighthouse/run.sh
