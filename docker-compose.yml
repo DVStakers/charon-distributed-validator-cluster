@@ -99,7 +99,10 @@ services:
       - ./teku:/opt/charon/teku
 
   vc-nimbus:
-    build: nimbus
+    build:
+      context: ./nimbus
+      args:
+        NIMBUS_VERSION: ${NIMBUS_VERSION:-v23.3.2}
     networks: [cluster]
     depends_on: [node-nimbus]
     restart: unless-stopped
