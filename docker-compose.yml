@@ -94,8 +94,8 @@ services:
       FEE_RECIPIENT: ${FEE_RECIPIENT}
       GRAFFITI: ${GRAFFITI}
     volumes:
-      - ./vc-clients/lighthouse/run.sh:/opt/lighthouse/run.sh
       - .charon/cluster/node${FIRST_NODE_NUMBER}/validator_keys:/opt/charon/keys
+      - ./vc-clients/lighthouse/run.sh:/opt/lighthouse/run.sh
 
   vc-teku:
     image: consensys/teku:${TEKU_VERSION:-23.3.0}
@@ -114,7 +114,7 @@ services:
 
   vc-nimbus:
     build:
-      context: ./nimbus
+      context: ./vc-clients/nimbus
       args:
         NIMBUS_VERSION: ${NIMBUS_VERSION:-v23.3.2}
     networks: [cluster]
