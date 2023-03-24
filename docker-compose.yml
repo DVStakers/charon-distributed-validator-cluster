@@ -13,7 +13,6 @@ x-node-env: &node-env
   CHARON_LOG_LEVEL: ${CHARON_LOG_LEVEL:-info}
   CHARON_LOG_FORMAT: ${CHARON_LOG_FORMAT:-console}
   CHARON_P2P_EXTERNAL_HOSTNAME: ${CHARON_P2P_EXTERNAL_HOSTNAME}
-  CHARON_P2P_RELAYS: ${CHARON_P2P_RELAYS}
   CHARON_P2P_TCP_ADDRESS: 0.0.0.0:${CHARON_P2P_TCP_ADDRESS_PORT}
   CHARON_VALIDATOR_API_ADDRESS: 0.0.0.0:3600
   CHARON_MONITORING_ADDRESS: 0.0.0.0:3620
@@ -33,6 +32,7 @@ services:
       CHARON_LOCK_FILE: /opt/charon/.charon/cluster/node${FIRST_NODE_NUMBER}/cluster-lock.json
       CHARON_JAEGER_SERVICE: node-lighthouse
       CHARON_P2P_EXTERNAL_HOSTNAME: node-lighthouse
+      CHARON_P2P_RELAYS: ${CHARON_P2P_RELAYS}
 
   node-teku:
     <<: *node-base
@@ -42,6 +42,7 @@ services:
       CHARON_LOCK_FILE: /opt/charon/.charon/cluster/node${SECOND_NODE_NUMBER}/cluster-lock.json
       CHARON_JAEGER_SERVICE: node-teku
       CHARON_P2P_EXTERNAL_HOSTNAME: node-teku
+      CHARON_P2P_RELAYS: ${CHARON_P2P_RELAYS}
 
   node-nimbus:
     <<: *node-base
@@ -51,6 +52,7 @@ services:
       CHARON_LOCK_FILE: /opt/charon/.charon/cluster/node${THIRD_NODE_NUMBER}/cluster-lock.json
       CHARON_JAEGER_SERVICE: node-nimbus
       CHARON_P2P_EXTERNAL_HOSTNAME: node-nimbus
+      CHARON_P2P_RELAYS: ${CHARON_P2P_RELAYS}
 
   relay:
     <<: *node-base
