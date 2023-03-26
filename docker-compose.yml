@@ -96,6 +96,7 @@ services:
     volumes:
       - .charon/cluster/node${FIRST_NODE_NUMBER}/validator_keys:/opt/charon/keys
       - ./vc-clients/lighthouse/run.sh:/opt/lighthouse/run.sh
+      - ./vc-clients/lighthouse:/opt/lighthouse
 
   vc-teku:
     image: consensys/teku:${TEKU_VERSION:-23.3.0}

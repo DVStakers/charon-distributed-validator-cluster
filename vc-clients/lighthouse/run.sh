@@ -22,6 +22,7 @@ done
 
 echo "Starting lighthouse validator client for ${NODE}"
 exec lighthouse --network "${NETWORK}" validator \
+  --datadir /opt/lighthouse \
   --beacon-nodes ${LIGHTHOUSE_BEACON_NODE_ADDRESS} \
   --suggested-fee-recipient "${FEE_RECIPIENT}" \
   --graffiti "${GRAFFITI}" \
