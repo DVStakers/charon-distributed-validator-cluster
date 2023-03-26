@@ -104,13 +104,19 @@ services:
     restart: unless-stopped
     command: |
       validator-client
+      --data-base-path="/opt/data"
       --beacon-node-api-endpoint="http://node-teku:3600"
-      --config-file "/opt/charon/teku/teku-config.yaml"
+      --metrics-enabled=true
+      --metrics-host-allowlist="*"
+      --metrics-interface="0.0.0.0"
+      --metrics-port="8008"
+      --validators-keystore-locking-enabled=false
+      --network="${NETWORK}"
+      --validator-keys="/opt/charon/validator_keys:/opt/charon/validator_keys"
       --validators-proposer-default-fee-recipient="${FEE_RECIPIENT}"
       --validators-graffiti="${GRAFFITI}"
     volumes:
       - .charon/cluster/node${SECOND_NODE_NUMBER}/validator_keys:/opt/charon/validator_keys
-      - ./vc-clients/teku:/opt/charon/teku
       - ./vc-clients/teku:/opt/data
 
   vc-nimbus:

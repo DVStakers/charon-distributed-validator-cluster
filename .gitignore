@@ -14,6 +14,6 @@ keystore*
 docker-compose.override.yml
 
 # Teku directory for slashing protection files
-teku/validator/
+vc-clients/teku/validator/
 # Teku directory for storing logs
-teku/logs/
+vc-clients/teku/logs/

@@ -1,7 +1,0 @@
-metrics-enabled: true
-metrics-host-allowlist: "*"
-metrics-interface: "0.0.0.0"
-metrics-port: "8008"
-validators-keystore-locking-enabled: false
-network: auto
-validator-keys: "/opt/charon/validator_keys:/opt/charon/validator_keys"
