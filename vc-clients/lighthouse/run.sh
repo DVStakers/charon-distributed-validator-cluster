@@ -15,6 +15,7 @@ done
 for f in /opt/charon/keys/keystore-*.json; do
   echo "Importing key ${f}"
   lighthouse --network "${NETWORK}" account validator import \
+    --datadir /var/lib/lighthouse \
     --reuse-password \
     --keystore "${f}" \
     --password-file "${f//json/txt}"
