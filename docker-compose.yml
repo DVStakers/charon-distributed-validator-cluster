@@ -111,6 +111,7 @@ services:
     volumes:
       - .charon/cluster/node${SECOND_NODE_NUMBER}/validator_keys:/opt/charon/validator_keys
       - ./vc-clients/teku:/opt/charon/teku
+      - ./teku:/opt/data
 
   vc-nimbus:
     build:
