@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Cleanup nimbus directories if they already exist.
-rm -rf /home/user/data/${NODE}
+#rm -rf /home/user/data/${NODE}
 
 # Refer: https://nimbus.guide/keys.html
 # Running a nimbus VC involves two steps which need to run in order:

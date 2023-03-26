@@ -13,7 +13,8 @@ keystore*
 
 docker-compose.override.yml
 
-# Teku directory for slashing protection files
+
+vc-clients/lighthouse/validators/
 vc-clients/teku/validator/
-# Teku directory for storing logs
 vc-clients/teku/logs/
+vc-clients/nimbus/node-nimbus/
