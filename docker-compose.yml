@@ -1,7 +1,7 @@
 version: "3.8"
 
 x-node-base: &node-base
-  image: obolnetwork/charon:${CHARON_VERSION:-v0.14.3}
+  image: obolnetwork/charon:${CHARON_VERSION:-v0.15.0}
   restart: unless-stopped
   networks: [cluster]
   depends_on: [relay]
@@ -83,7 +83,7 @@ services:
   #  \ V / (_| | | | (_| | (_| | || (_) | |  \__ \
   #   \_/ \__,_|_|_|\__,_|\__,_|\__\___/|_|  |___/
   vc-lighthouse:
-    image: sigp/lighthouse:${LIGHTHOUSE_VERSION:-v3.5.1}
+    image: sigp/lighthouse:${LIGHTHOUSE_VERSION:-v4.0.2-rc.0}
     entrypoint: /opt/lighthouse/run.sh
     networks: [cluster]
     depends_on: [node-lighthouse]
@@ -99,7 +99,7 @@ services:
       - ./vc-clients/lighthouse:/var/lib/lighthouse
 
   vc-teku:
-    image: consensys/teku:${TEKU_VERSION:-23.3.0}
+    image: consensys/teku:${TEKU_VERSION:-23.3.1}
     networks: [cluster]
     depends_on: [node-teku]
     restart: unless-stopped
