@@ -71,8 +71,8 @@ services:
       CHARON_DATA_DIR: /opt/charon/relay
       CHARON_P2P_EXTERNAL_HOSTNAME: ${CHARON_P2P_EXTERNAL_HOSTNAME}
       CHARON_P2P_TCP_ADDRESS: 0.0.0.0:${CHARON_RELAY_P2P_TCP_ADDRESS_PORT}
-    tmpfs:
-      - /opt/charon/relay:rw
+    volumes:
+      - ./relay:/opt/charon/relay:rw
     ports:
       - ${CHARON_RELAY_P2P_TCP_ADDRESS_PORT}:${CHARON_RELAY_P2P_TCP_ADDRESS_PORT}/tcp
       - ${CHARON_RELAY_PORT}:${CHARON_RELAY_PORT}/tcp
