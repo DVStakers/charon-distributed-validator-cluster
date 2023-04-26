@@ -11,4 +11,4 @@ vc-clients/lighthouse/validators/
 vc-clients/teku/validator/
 vc-clients/teku/logs/
 vc-clients/nimbus/node-nimbus/
-relay/
+relay/charon-enr-private-key
