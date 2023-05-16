@@ -83,7 +83,7 @@ services:
   #  \ V / (_| | | | (_| | (_| | || (_) | |  \__ \
   #   \_/ \__,_|_|_|\__,_|\__,_|\__\___/|_|  |___/
   vc-lighthouse:
-    image: sigp/lighthouse:${LIGHTHOUSE_VERSION:-v4.0.2-rc.0}
+    image: sigp/lighthouse:${LIGHTHOUSE_VERSION:-v4.1.0}
     entrypoint: /opt/lighthouse/run.sh
     networks: [cluster]
     depends_on: [node-lighthouse]
@@ -99,7 +99,7 @@ services:
       - ./vc-clients/lighthouse:/var/lib/lighthouse
 
   vc-teku:
-    image: consensys/teku:${TEKU_VERSION:-23.3.1}
+    image: consensys/teku:${TEKU_VERSION:-23.5.0}
     networks: [cluster]
     depends_on: [node-teku]
     restart: unless-stopped
@@ -124,7 +124,7 @@ services:
     build:
       context: ./vc-clients/nimbus
       args:
-        NIMBUS_VERSION: ${NIMBUS_VERSION:-v23.3.2}
+        NIMBUS_VERSION: ${NIMBUS_VERSION:-v23.5.0}
     networks: [cluster]
     depends_on: [node-nimbus]
     restart: unless-stopped
